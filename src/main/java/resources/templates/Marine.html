@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Pandora Zoo</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+        
+        <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+        
+        <link th:href="@{https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap}" rel="stylesheet">
+
+        <link th:href="@{/main/css/bootstrap.min.css}" rel="stylesheet">
+
+        <link th:href="@{/main/css/bootstrap-icons.css}" rel="stylesheet">
+
+        <link th:href="@{/main/css/templatemo-leadership-event.css}" rel="stylesheet">
+        
+
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a th:href="@{/home}" class="navbar-brand mx-auto mx-lg-0">
+                   
+                    <span class="brand-text">Pandora <br> United</span>
+                </a>
+
+                <a class="nav-link custom-btn btn d-lg-none" href="#">Buy Tickets</a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/home}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Pandora-Sky}">Sky</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/Pandora-Wild}">Wild</a>
+                        </li>
+
+                      
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_4">Events</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll custom-btn btn d-none d-lg-block" href="#section_5">Buy Tickets</a>
+                        </li>
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+
+        <main>
+
+            <section class="hero" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12 m-auto">
+                            <div class="hero-text">
+                                <h1><u class="text-info" th:text="${appearance.HeadingOne}">Pandora </u> </h1>
+                                <h1 class="text-white mb-4"  th:text="${appearance.HeadingTwo}"> You</h1>
+
+                                
+
+                                <a href="#section_2" class="custom-link bi-arrow-down arrow-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-wrap">
+                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                        <source th:src="@{/uploads/{file}(file=${appearance.fileName})}" type="video/mp4">
+
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+
+            <section class="highlight">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 col-12" th:each="pandoraMarine:${animal}">
+                            <div class="highlight-thumb">
+                                <img th:src="@{/uploads/{file}(file=${pandoraMarine.fileName})}" class="highlight-image img-fluid" alt="">
+
+                                <div class="highlight-info">
+                                    <h3 class="highlight-title" th:text="${pandoraMarine.AnimalName}">2019 Highlights</h3>
+
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </section>
+
+
+           
+
+
+           
+
+            <section class="schedule section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12">
+                            <h2 class="mb-5 text-center">Events of the <u class="text-info">Day</u></h2>
+
+                            
+
+                            <div class="tab-content mt-5" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-DayOne" role="tabpanel" aria-labelledby="nav-DayOne-tab">
+                                    
+
+                                   
+
+                                    <div class="row" th:each="PandoraMarineEvents:${Events}">
+                                        <div class="col-lg-4 col-12">
+                                            <img th:src="@{/uploads/{file}(file=${PandoraMarineEvents.fileName})}"  class="schedule-image img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-8 col-12 mt-3 mt-lg-0">
+                                            <h4 class="mb-2" th:text="${PandoraMarineEvents.Event_name}">Bootstrapping Startup</h4>
+
+                                            <p th:text="${PandoraMarineEvents.Event_description}">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut consequat purus posuere tortor efficitur, sit amet dignissim libero aliquam.</p>
+
+                                            <div class="d-flex align-items-center mt-4">
+                                                <!--<div class="avatar-group d-flex">
+                                                    <img th:src="@{/uploads/{file}(file=${PandoraMarineEvents.fileName})}" class="img-fluid avatar-image" alt="">
+
+                                                    <div class="ms-3">
+                                                    Thomas
+                                                    <p class="speakers-text mb-0">Startup Coach</p>
+                                                </div>
+                                                </div>-->
+
+                                                <span class="mx-3 mx-lg-5 " th:text="${PandoraMarineEvents.Event_time}">
+                                                    <i class="bi-clock me-2"></i>
+                                                    11:00 - 11:45 AM
+                                                </span>
+
+                                                <span class="mx-1 mx-lg-5" th:text="${PandoraMarineEvents.Event_venue}">
+                                                    <i class="bi-layout-sidebar me-2"></i>
+                                                    100-B Room
+                                                </span>
+                                            </div>
+                                        </div>
+                                          <br>
+                                    </div>
+                                    
+                                  
+                                    
+                                    
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+           
+
+           
+
+             <section class="pricing section-padding" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 text-center mx-auto mb-5">
+                            <h2>Get Your <u class="text-info">Tickets</u></h2>
+                             <h9>Valid for one day</h9>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-5 mb-lg-0" th:each="pandoraPass:${pass}">
+                            <div class="pricing-thumb bg-white shadow-lg">                                
+                                <div class="pricing-title-wrap d-flex align-items-center">
+
+                                    <h4 class="pricing-title text-white mb-0" th:text="${pandoraPass.pass_name}">Early Bird</h4>
+
+                                    <h5 class="pricing-small-title text-white mb-0 ms-auto" th:text="Rs.+' ' +${  pandoraPass.pass_cost}">$640</h5>
+                                </div>
+
+                                <div class="pricing-body">
+                                    <p th:text="${pandoraPass.perk_one}">
+                                        <i class="bi-cup me-2"></i> All-Day Coffee + Snacks
+                                    </p>
+
+                                    <p th:text="${pandoraPass.perk_two}">
+                                        <i class="bi-controller me-2"></i> After Party
+                                    </p>
+
+                                    <p th:text="${pandoraPass.perk_three}">
+                                        <i class="bi-chat-square me-2"></i> 24/7 Support
+                                    </p>
+                                    <p th:text="${pandoraPass.perk_four}">
+                                        <i class="bi-chat-square me-2"></i> 24/7 Support
+                                    </p>
+                                    <p th:text="${pandoraPass.perk_five}">
+                                        <i class="bi-chat-square me-2"></i> 24/7 Support
+                                    </p>
+                                    <p th:text="${pandoraPass.perk_six}">
+                                        <i class="bi-chat-square me-2"></i> 24/7 Support
+                                    </p>
+
+                                    <div class="border-bottom pb-3 mb-4"></div>
+
+                                    <p th:text="${pandoraPass.pass_description}">Quick group meetings for multiple teams</p>
+
+                                   <a class="custom-btn btn mt-3" th:href="@{/users/BuyTicket/{id}(id=${pandoraPass.id})}">Buy Tickets</a>
+                                 </div>
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                    </div>
+                </div>
+            </section>
+
+           
+        <!-- JAVASCRIPT FILES -->
+        <script th:src="@{/main/js/jquery.min.js}"></script>
+        <script th:src="@{/main/js/bootstrap.min.js}"></script>
+        <script th:src="@{/main/js/jquery.sticky.js}"></script>
+        <script th:src="@{/main/js/click-scroll.js}"></script>
+        <script th:src="@{/main/js/custom.js}"></script>
+
+    </body>
+</html>
