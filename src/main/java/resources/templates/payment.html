@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/payment/payment.css}" rel="stylesheet">
+<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js}">
+<link th:href="@{https://use.fontawesome.com/releases/v5.7.2/css/all.css}" rel="stylesheet">
+<div class="container">
+    <div class="row m-0">
+        <div class="col-lg-7 pb-5 pe-lg-5">
+            <div class="row">
+                <div class="col-12 p-5"> <img src="https://2s48jvfpl1l3jrkp72d55xu1-wpengine.netdna-ssl.com/wp-content/uploads/2021/06/Motorhome-Hacks-and-Tips-for-a-Happy-Life-of-Touring-1024x681.png" alt=""> </div>
+                <div class="row m-0 bg-light">
+                    <div class="col-md-4 col-6 ps-30 pe-0 my-4" style="text-align: center;">
+                        <p class="text-muted" >Pass Name</p>
+                        <p class="h5" th:text="${ticket.Pass_Name}">25000<span class="ps-1">Km</span></p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 pe-0 my-4" style="text-align: center;">
+                        <p class="text-muted">Pass Cost</p>
+                        <p class="h5" th:text="${ticket.Cost}">25000<span class="ps-1">Km</span></p>
+                    </div>
+                     <div class="col-md-4 col-6 ps-30 pe-0 my-4" style="text-align: center;">
+                        <p class="text-muted"> Date</p>
+                        <p class="h5" th:text="${ticket.Pass_Date}">25000<span class="ps-1">Km</span></p>
+                    </div>
+                    <h3 style="text-align: center;"> Pandora will amuse you!</h3>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 p-0 ps-lg-4">
+            <div class="row m-0">
+                <div class="col-12 px-4">
+                    <div class="d-flex align-items-end mt-4 mb-2">
+                        <p class="h4 m-0"><span class="pe-1">Billing</span></p>
+                       
+                    </div>
+                    <br>
+                   
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Adults:</p>
+                        <p class="fs-14 fw-bold" th:text="${ticket.adults}">1</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Kids:</p>
+                        <p class="fs-14 fw-bold" th:text="${ticket.kids}">1</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Subtotal</p>
+                        <p class="fs-14 fw-bold" ><span class="fas fa-rupee-sign pe-1" ></span><span class="h5" th:text="${ticket.adults * ticket.cost}">
+                        </span></p>
+                    </div>
+                  
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Promo code</p>
+                        <p class="fs-14 fw-bold">-<span class="fas fa-rupee-sign px-1"></span>Not Applied</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <p class="textmuted fw-bold">Total</p>
+                        <div class="d-flex align-text-top "> <span class="fas fa-rupee-sign mt-1 pe-1 fs-14 "></span><span class="h4" th:text="${ticket.adults * ticket.cost}"></span> </div>
+                    </div>
+                </div>
+               
+                    <div class="row m-0">
+                        <div class="col-12 mb-4 p-0">
+                          <a th:href="@{/redirect/payment}" > <div class="btn btn-primary" >Make Payment<span class="fas fa-arrow-right ps-2"></span> </div>
+                        </div></a>
+                         <a th:href="@{/home}" > <div class="btn btn-primary" ><span class="fas fa-arrow-left ps-2"></span>&nbsp;&nbsp;&nbsp;Cancel Booking </div>
+                        </div></a>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</html>
