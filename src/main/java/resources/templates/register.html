@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" th:href="@{/login/images/icons/favicon.ico}"/>
+<!--===============================================================================================-->
+
+
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/login/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/login/css/main.css}">
+<!--===============================================================================================-->
+
+<div th:if="${exist}">
+   <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+</head>
+<body>
+
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Register Failed!</strong> An account already exists with this email-id. Please Login.
+</div>
+
+</body>
+</html>
+
+   </div>
+</head>
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form"  th:action="@{/process_register}"  th:object="${users}" method="POST">
+					
+					<span class="login100-form-title p-b-43">
+					Welcome to Pandora <br>
+						Register to continue
+					</span>
+					
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="email" th:field="*{firstName}" placeholder="First Name" required>
+						<span class="focus-input100"></span>
+						
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="email" th:field="*{lastName}" placeholder="Last Name" required>
+						<span class="focus-input100"></span>
+					
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="email" id="PhoneEntered" placeholder="Phone" th:field="*{phone}" required>
+						<span class="focus-input100"></span>
+					
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" th:field="*{email}" placeholder="Email" name="username" required>
+						<span class="focus-input100"></span>
+					
+					</div>
+				
+					
+					
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="password" id="exampleInputPassword" th:field="*{password}" placeholder="Password" name="password" required>
+						<span class="focus-input100"></span>
+						
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="password" id="exampleInputConfirmPassword" placeholder=" Repeat Password"  required>
+						<span class="focus-input100"></span>
+						
+					</div>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+						<div>
+							<a th:href="@{/login}" class="txt1">
+								Already have an account? Login here!
+							</a>
+						</div>
+					</div>
+			
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" onclick="return Validate()">
+						Register
+						</button>
+					</div>
+					
+					
+				</form>
+
+				<div class="login100-more" style="background-image: url('/login/images/Pandora.webp');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+<!--===============================================================================================-->
+	
+<!--===============================================================================================-->
+	<script th:src="@{/login/js/main.js}"></script>
+	<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("exampleInputPassword").value;
+        var confirmPassword = document.getElementById("exampleInputConfirmPassword").value;
+        var passwordLength = document.getElementById("exampleInputPassword").value.length;
+         var phoneLength = document.getElementById("PhoneEntered").value.length;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }if(passwordLength < 6){
+	alert("Password length is too small, enter minimum 6 characters");
+	return false;
+}if(passwordLength > 14){
+	alert("Password length is too large, maximum 14 characters allowed");
+	return false;
+}if(phoneLength < 10){
+	alert("Enter valid Phone number");
+	return false;
+}if(phoneLength > 10){
+	alert("Enter valid Phone number");
+	return false;
+}
+
+        else{
+        return true;
+        }
+        
+       
+}
+    
+</script>
+
+</body>
+</html>
